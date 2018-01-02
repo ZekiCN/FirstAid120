@@ -37,7 +37,7 @@ public class AidAction{
 	 * @param request
 	 * @param response
 	 */
-	@RequestMapping(value="doSelect" , produces="application/json;charset=UTF-8", method = RequestMethod.POST)
+	@RequestMapping(value="doSelect" , produces="application/json;charset=UTF-8")
 	@ResponseBody
 	public String doSelect(@RequestParam Map<String, String> params, HttpServletRequest request,
 			HttpServletResponse response) {
