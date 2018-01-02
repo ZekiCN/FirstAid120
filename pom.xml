@@ -602,6 +602,14 @@
 
 	<repositories>
 		<repository>
+			<id>local</id>
+			<name>local_repo</name>
+			<url>http://112.91.67.148:8081/nexus/content/groups/public/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
 			<id>trrRepo</id>
 			<name>trrRepository</name>
 			<url>http://125.94.45.151:10080/nexus/content/repositories/thirdparty/</url>
