@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="Aid">
+	<cache type="org.mybatis.caches.ehcache.EhcacheCache" ></cache>
+ 	<resultMap id="getAid" type="java.util.HashMap">
+     </resultMap> 
+    <!-- 模板 慎用 会导致没有where 项时 查出全部数据，要用的话要在业务逻辑中增加查询验证标准-->
+<!--     <sql id="Field">
+	id,
+	code,
+	name,
+	pingyin_code,
+	usages,
+	usages_code,
+	dose,
+	dose_unit,
+	category_code,
+	category_name,
+	is_ambulance,
+	is_antibiotics,
+	creator_id,
+	creator_name,
+	created_time,
+	creator_user_id,
+	creator_dept_id,
+	creator_corp_id,
+	last_modified_id,
+	last_modified_name,
+	last_modified_time
+	</sql> -->
+    
+    <select id="select" parameterType="java.util.HashMap" resultMap="getAid">
+        select * from  TPT_EMERGENCY_120
+  		<trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="no !='' and no !=null">
+                and no = #{no}
+            </if>
+             <if test="platformNo !='' and platformNo !=null">
+                and platformNo = #{platformNo}
+            </if>
+            <if test="sendCarPeopleNo !='' and sendCarPeopleNo !=null">
+                and sendCarPeopleNo = #{sendCarPeopleNo}
+            </if>
+
+            <if test="platNo !='' and platNo !=null">
+                and platNo = #{platNo}
+            </if>
+
+            <if test="siteAddress !='' and siteAddress !=null">
+                and siteAddress = #{siteAddress}
+            </if>
+            
+            <if test="contactPeople !='' and contactPeople !=null">
+                and contactPeople = #{contactPeople}
+            </if>
+
+            <if test="contactPhone !='' and contactPhone !=null">
+                and contactPhone = #{contactPhone}
+            </if>
+            <if test="woundedName !='' and woundedName !=null">
+                and woundedName = #{woundedName}
+            </if>
+            <if test="hoapitalCode !='' and hoapitalCode !=null">
+                and hoapitalCode = #{hoapitalCode}
+            </if>
+        </trim>
+    </select>
+
+<!--     <select id="selectById" parameterType="java.util.HashMap" resultMap="getAid">
+        select 
+        <include refid="Field"></include>
+        from
+             TPT_EMERGENCY_120
+                       where id=#{id}
+    </select> -->
+
+</mapper>

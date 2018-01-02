@@ -1,0 +1,4 @@
+1、该项目是根据 svn://103.235.243.118/corsyn/项目开发库/16009城乡交通创伤智能救治平台/code/web/PublicResource svn:19383 项目进行裁剪改造
+1、主要用于从sqlservice数据库中读取120救护系统的数据。
+2、有依赖于smdCore项目代码。
+3、调用接口http://172.16.0.144:8270/FirstAid120/Aid/doSelect.do?no=no
